@@ -1,0 +1,30 @@
+﻿@{
+	string titleCyan = ViewBag.TitleCyan;
+	string titleWhite = ViewBag.TitleWhite;
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title</title>
+	<script src="~/Libs/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="~/Libs/bootstrap-3.3.6-dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/common.css" />
+	<script src="~/Libs/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	@RenderSection( "pageStyleSheets", false)
+	@RenderSection( "pageScripts", false)
+</head>
+<body>
+	<div id="main-panel" class="panel panel-primary">
+		<div class="panel-heading">
+			<span class="title-cyan">@titleCyan</span><span class="title-white">@titleWhite</span>
+		</div>
+		<div class="panel-body">
+			@RenderBody()
+		</div>
+	</div>
+</body>
+</html>
+
