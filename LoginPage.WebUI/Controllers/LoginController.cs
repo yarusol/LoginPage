@@ -8,13 +8,15 @@ using System.Security.Principal;
 using LoginPage.WebUI.Managers;
 using LoginPage.WebUI.Models;
 
+using System.Data;
+using System.Data.Common;
+using System.Data.SQLite;
+
 namespace LoginPage.WebUI.Controllers
 {
     public class LoginController : Controller
     {
-        //
-        // GET: /Login/
-
+       
         public ActionResult Index()
         {
 			if ( String.IsNullOrEmpty( HttpContext.User.Identity.Name ) )
@@ -64,6 +66,30 @@ namespace LoginPage.WebUI.Controllers
 		{
 			ViewBag.TitleCyan = "Repotring";
 			ViewBag.TitleWhite = "Tool";
+			List<string> users = new List<string>();
+			ViewBag.Values = users;
+
+			string baseName = @"D:\_Usr\Ruslan\Documents\Projects\SS\LoginPage\users.sqlite";
+			//SQLiteConnection.CreateFile(baseName);
+			//SQLiteFactory factory = (SQLiteFactory)DbProviderFactories.GetFactory( "System.Data.SQLite" );
+			using ( SQLiteConnection connection = new SQLiteConnection() )
+			{
+				connection.ConnectionString = "Data Source = " + baseName;
+				connection.Open();
+				using ( SQLiteCommand command = new SQLiteCommand( connection ) )
+				{
+					command.CommandText = @"SELECT [Name] From [Users];";
+					command.CommandType = CommandType.Text;
+					using ( var reader = command.ExecuteReader() )
+					{
+						foreach ( IDataRecord userName in reader )
+						{
+							users.Add( userName.GetString(0) );
+						}
+					}
+				}
+			}
+
 			return View();
 		}
 
