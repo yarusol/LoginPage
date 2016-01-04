@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Security.Principal;
 
 using LoginPage.WebUI.Managers;
+using LoginPage.WebUI.Models;
 
 namespace LoginPage.WebUI.Controllers
 {
@@ -28,30 +29,34 @@ namespace LoginPage.WebUI.Controllers
         }
 
 		[HttpGet]
-		public ActionResult Login( string message = "" )
+		public ActionResult Login( UserCredentials credentials = null , string message = "" )
 		{
 			ViewBag.TitleCyan = "Repotring";
 			ViewBag.TitleWhite = "Tool";
 			ViewBag.Message = message;
-			return View();
+			if ( credentials == null )
+			{
+				credentials = new UserCredentials();
+			}
+
+			return View( credentials );
 		}
 
-		[HttpPost]
-		public ActionResult Login( string username, string password )
-		{
-			//System.Windows.Forms.MessageBox.Show( String.Format( "username = '{0}'\npassword = '{1}'", username, password ) );
 
+		[HttpPost]
+		public ActionResult Login( UserCredentials credentials )
+		{
 			ISecurityManager security = new FakeSecurityManager();
-			if ( security.Authenticate( username, password ) )
+			if ( security.Authenticate( credentials.UserName, credentials.Password ) )
 			{
-				HttpContext.User = new GenericPrincipal( new GenericIdentity( username), new string[]{"user"} );
+				HttpContext.User = new GenericPrincipal( new GenericIdentity( credentials.UserName ), new string[] { "user" } );
 				return RedirectToAction( "Welcome" );
 			}
 			else
 			{
-				return Login( "Login failed !" );
+				credentials.Password = "";
+				return Login( credentials, "Login failed !" );
 			}
-
 		}
 
 		[HttpGet]
