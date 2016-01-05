@@ -1,0 +1,82 @@
+﻿#main-container {
+}
+
+	#main-container div {
+		border-radius: 5px;
+	}
+
+#left-menu {
+	background: #e6e6e6;
+	font-size: 12px;
+	padding: 15px 0;
+}
+
+	#left-menu ul {
+		margin-left: 24px;
+		font-weight: bold;
+	}
+
+	#left-menu a {
+		color: #0ABEE2;
+		padding: 9px 0;
+	}
+
+	#left-menu ul ul {
+		font-weight: normal;
+	}
+
+
+
+#report-block, #report-block * {
+	padding: 0;
+	margin: 0;
+	margin-left: 15px;
+}
+
+	#report-block * {
+		padding: 0;
+		margin: 0;
+	}
+
+
+	#report-block .greeting {
+		font-size: 26px;
+		font-weight: bolder;
+		padding-left: 12px;
+	}
+
+.report {
+	background: white;
+	font-size: 10px;
+}
+
+#report-block .report div {
+	padding-left: 8px;
+}
+
+#report-block .panel-heading {
+	font-size: 14px;
+	height: 32px;
+	font-size: 15px;
+	padding-top: 5px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border: 1px solid #0ABEE2;
+}
+#report-block .panel-body {
+	border: 1px solid #0ABEE2;
+	border-top: none;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+#report-block .panel-body a {
+	text-decoration: underline;
+	font-size: 11px;
+	color: #0ABEE2;
+}
+
+
+#report2 {
+	background: blue;
+}

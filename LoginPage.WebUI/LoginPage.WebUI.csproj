@@ -42,6 +42,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -120,6 +121,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="css\common.css" />
     <Content Include="css\login-form.css" />
+    <Content Include="css\welcome.css" />
     <Content Include="Global.asax" />
     <Content Include="Libs\bootstrap-3.3.6-dist\css\bootstrap-theme.css" />
     <Content Include="Libs\bootstrap-3.3.6-dist\css\bootstrap-theme.min.css" />

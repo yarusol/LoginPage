@@ -1,15 +1,73 @@
 ﻿@{
 	Layout = "~/Views/Shared/Layout.cshtml";
-    ViewBag.Title = "Ласкаво просимо!";
+	ViewBag.Title = "Welcome";
 	string message = ViewBag.Message;
 }
 @section pageStyleSheets
 {
-	<link rel="stylesheet" href="~/css/login-form.css" />
+	<link rel="stylesheet" href="~/css/welcome.css" />
 }
 @section pageScripts
 {
 
 }
 
-<h1>Some working page will be here soon...</h1>
+<div class="container" id="main-container">
+	<div class="row">
+		<nav class="col-md-3  " id="left-menu" role="navigation">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation">
+					<a href="#">Administration</a>
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation"><a href="#">Create Team</a></li>
+						<li role="presentation"><a href="#">Create Template</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Reporting</a>
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation"><a href="#">Generate report</a></li>
+						<li role="presentation"><a href="#">Custom report</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="col-md-6" id="report-block">
+			<div class="container-fluid text-left" >
+				<div class="row greeting">
+					Welcome Mr. Serhiy Nosach
+				</div>
+				<div class="row">
+					<div class="col-md-4 panel panel-default report" id="report1">
+						<div class="panel-heading">Recently generated report</div>
+						<div class="panel-body">
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+						</div>
+					</div>
+					<div class="col-md-1">
+						&nbsp;
+					</div>
+					<div class="col-md-4 panel panel-default report" id="report1">
+						<div class="panel-heading">Recently generated report</div>
+						<div class="panel-body">
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+							<p>Report generated on <a href="#">22.12.2015</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 "></div>
+	</div>
+</div>
+
